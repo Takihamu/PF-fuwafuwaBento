@@ -1,0 +1,2 @@
+module Cutomers::ItemsHelper
+end
