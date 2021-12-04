@@ -67,3 +67,6 @@ gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 gem 'bootstrap', '~> 4.5'
 gem 'font-awesome-sass', '~> 5.13'
+
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"
