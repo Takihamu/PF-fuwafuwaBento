@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_03_133658) do
+ActiveRecord::Schema.define(version: 2021_12_04_080544) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -32,6 +32,12 @@ ActiveRecord::Schema.define(version: 2021_12_03_133658) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "courses", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "customers", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -50,6 +56,31 @@ ActiveRecord::Schema.define(version: 2021_12_03_133658) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.integer "course_id"
+    t.string "item_name"
+    t.string "image_id"
+    t.text "detail"
+    t.integer "price"
+    t.boolean "item_status", default: true, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "customer_id"
+    t.string "shipping_postal_code"
+    t.string "receiver_name"
+    t.string "delivery_address"
+    t.integer "shipping_fee"
+    t.integer "total_price"
+    t.integer "payment_method"
+    t.integer "order_status", default: 0, null: false
+    t.date "logged_out_on"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
