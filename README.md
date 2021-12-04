@@ -28,7 +28,6 @@ TOPページにカレンダーが記載されているので、利用ユーザ�
 ・１週間分・１か月分のお弁当を一度に宅配予約したいとき
 
 ## 設計書
-後日提出<br>
 ・[ER図](https://drive.google.com/file/d/1YTqqCqX76iA_YrZ1r8Mm890nM57kksG_/view?usp=sharing)<br>
 ・[画面遷移図](https://app.diagrams.net/#G1Vc8XEZE7FeUBl_WJFZtw8xTkiKvT_6nC)<br>
 ・テーブル定義書<br>
