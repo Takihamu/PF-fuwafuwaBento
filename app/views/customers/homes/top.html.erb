@@ -1,3 +1,4 @@
+<h1>Koreha Obento Dayo</h1>
 <div id="box">
   <div id="theTarget">
     <div class="image1"></div>
@@ -6,3 +7,6 @@
     <div class="image4"></div>
   </div>
 </div>
+<%= link_to "新規会員登録", new_customer_registration_path %>
+<%= link_to "会員はこちら", new_customer_session_path %>
+<%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
