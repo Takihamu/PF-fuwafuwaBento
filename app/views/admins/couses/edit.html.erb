@@ -1,0 +1,6 @@
+<h2>コース追加・編集</h2>
+  <%= form_with model: [:admins, @couses], local: true do |f| %>
+    <%= f.label :name, "コース" %>
+    <%= f.text_field :name, placeholder: "コース名を入力" %>
+    <%= f.submit '変更を保存' %>
+  <% end %>

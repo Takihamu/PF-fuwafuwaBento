@@ -1,0 +1,28 @@
+<h2>商品一覧</h2>
+  <%= link_to "", new_admins_item_path %>
+
+  <tr>
+    <th>商品ID</th>
+    <th></th>
+    <th>商品名</th>
+    <th>税別価格</th>
+    <th>コース一覧</th>
+    <th>ステータス</th>
+  </tr>
+
+  <% @item.each do |item| %>
+    <tr>
+      <td><%= item.id %></td>
+      <td><%= attachment_image_tag item, :image, :fill, 100, 100, format: 'jpeg' %></td>
+      <td><%= link_to item.item_name, admins_item_path(item.id) %></td>
+      <td><%= item.price %></td>
+      <td><%= item.couse.name %></td>
+      <td>
+        <% if item.item_status == 'on_sale' %>
+          <span class="text-success">販売中</span>
+        <% else %>
+          <span class="text-secondary">販売停止中</span>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>

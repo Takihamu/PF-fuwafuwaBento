@@ -2,7 +2,7 @@ class Admins::CousesController < ApplicationController
 
   def index
     @couse = Couse.new
-    @couse = Couse.all
+    @couses = Couse.all
   end
 
   def create
