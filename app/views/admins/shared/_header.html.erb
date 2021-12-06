@@ -28,4 +28,10 @@
      <%= link_to "ログアウト", destroy_admins_session_path, method: :delete, class: "nav-link" %>
    </li>
 
+   <div class="search-form">
+     <%= form_with url: search_admins_items_path, method: :get, local: true do |f| %>
+     <%= f.text_field :keyword, size: "100x40" %>
+     <%= f.submit "検索" %>
+     <% end %>
+    </div>
    <% end %>
