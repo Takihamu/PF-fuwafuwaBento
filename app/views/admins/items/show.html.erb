@@ -1,0 +1,37 @@
+<h2>商品詳細</h2>
+  <%= attachment_image_tag @item, :image, :fill, 500, 500, format: 'jpeg' %>
+  <tr>
+    <td>お弁当</td>
+    <td><%= @item.item_name %></td>
+  </tr>
+
+  <tr>
+    <td>お弁当説明</td>
+    <td><%= @item.detail %></td>
+  </tr>
+
+  <tr>
+    <td>税込み価格</td>
+    <td><%= @item.price %></td>
+  </tr>
+
+  <tr>
+    <td>コース</td>
+    <td><%= @item.couse.name %></td>
+  </tr>
+
+  <tr>
+    <td>販売ステータス</td>
+      <td><% if @item.item_status == "on_sale" %>
+        <span class="text-success">販売中</span>
+      <% else %>
+        <span class="text-danger">販売停止中</span>
+       <% end %></td>
+  </tr>
+
+  <tr>
+    <td></td>
+    <td>
+      <%= link_to "編集する", edit_admins_item_path(@item.id) %>
+    </td>
+  </tr>
