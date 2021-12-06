@@ -38,7 +38,7 @@ https://docs.google.com/spreadsheets/d/1qoQs7gx4L54HtrvcsFN4duzavq-vIF6UGsNnJ6GW
 ## 開発環境
 - OS：MaccOS Monterey
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
-- フレームワーク：Ruby on Rails git commit -m
+- フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
 
