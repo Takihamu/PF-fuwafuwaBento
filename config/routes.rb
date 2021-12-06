@@ -27,7 +27,7 @@ end
   scope module: :customers do
     #homes
     root to: 'homes#top'
-    get 'homes#about' => 'homes#about'
+    get 'homes/about' => 'homes#about'
     #items
     resources :items, only:[:show, :index]
     #cart_items

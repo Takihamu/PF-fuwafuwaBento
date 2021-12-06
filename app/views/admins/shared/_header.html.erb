@@ -15,3 +15,17 @@
    <li class="nav-item">
      <%= link_to "会員一覧", admins_customers_path, class: "nav-link" %>
    </li>
+
+   <li class="nav-item">
+     <%= link_to "注文履歴一覧", admins_orders_path(order: 'all'), class: "nav-link" %>
+   </li>
+
+   <li class="nav-item">
+     <%= link_to "コース一覧", admins_couses_path, class: "nav-link" %>
+   </li>
+
+   <li class="nav-item">
+     <%= link_to "ログアウト", destroy_admins_session_path, method: :delete, class: "nav-link" %>
+   </li>
+
+   <% end %>

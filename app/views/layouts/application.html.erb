@@ -10,6 +10,11 @@
   </head>
 
   <body>
+    <% if controller.class.parent.name == "Admins" %>
+      <%= render "admins/shared/header" %>
+    <% else %>
+      <%= render "customers/shared/header" %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
