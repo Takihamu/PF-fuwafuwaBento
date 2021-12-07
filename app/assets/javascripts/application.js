@@ -21,7 +21,7 @@
 //= require_tree .
 
 $(document).ready(function () {
-  $("#theTarget").skippr({
+  $("#images").skippr({
     transition : 'fade',
     speed : 1000,
     easing : 'easeOutQuart',
