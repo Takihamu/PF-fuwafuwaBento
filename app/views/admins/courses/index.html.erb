@@ -1,5 +1,5 @@
 <h2>コース一覧・追加</h2>
-  <%= form_with model: [:admins, @couse], local: true do |f| %>
+  <%= form_with model: [:admins, @course], local: true do |f| %>
   <%= f.label :name, "コース" %>
   <%= f.text_field :name, placeholder: "ジャンル名を入力" %>
   <%= f.submit '新規登録' %>
@@ -9,10 +9,10 @@
     <th>コース</th>
   </tr>
 
-  <% @couses.each do |genre| %>
+  <% @courses.each do |genre| %>
   <tr>
-    <td><%= couse.name %></td>
+    <td><%= course.name %></td>
     <td>
-      %= link_to '編集する', edit_admins_couse_path(couse.id) %>
+      %= link_to '編集する', edit_admins_course_path(course.id) %>
     </td>
   <% end %>

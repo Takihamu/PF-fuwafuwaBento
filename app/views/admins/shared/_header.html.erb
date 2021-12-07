@@ -21,17 +21,11 @@
    </li>
 
    <li class="nav-item">
-     <%= link_to "コース一覧", admins_couses_path, class: "nav-link" %>
+     <%= link_to "コース一覧", admins_courses_path, class: "nav-link" %>
    </li>
 
    <li class="nav-item">
-     <%= link_to "ログアウト", destroy_admins_session_path, method: :delete, class: "nav-link" %>
+     <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link" %>
    </li>
 
-   <div class="search-form">
-     <%= form_with url: search_admins_items_path, method: :get, local: true do |f| %>
-     <%= f.text_field :keyword, size: "100x40" %>
-     <%= f.submit "検索" %>
-     <% end %>
-    </div>
    <% end %>
