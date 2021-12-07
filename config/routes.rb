@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   #items
   resources :items, only:[:new, :show, :index, :edit, :create, :update]
 
-  #couses
+  #courses
   resources :courses, only:[:index, :edit, :create, :update]
 
   #customers

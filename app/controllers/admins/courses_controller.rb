@@ -26,4 +26,9 @@ class Admins::CoursesController < ApplicationController
       render :edit
     end
   end
+
+  private
+  def course_params
+    params.require(:course).permit(:name)
+  end
 end

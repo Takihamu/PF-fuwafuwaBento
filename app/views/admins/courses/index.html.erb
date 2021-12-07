@@ -9,10 +9,10 @@
     <th>コース</th>
   </tr>
 
-  <% @courses.each do |genre| %>
+  <% @courses.each do |course| %>
   <tr>
     <td><%= course.name %></td>
     <td>
-      %= link_to '編集する', edit_admins_course_path(course.id) %>
+      <%= link_to '編集する', edit_admins_course_path(course.id) %>
     </td>
   <% end %>
