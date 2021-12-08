@@ -37,4 +37,4 @@ class Customers::OrdersController < ApplicationController
 
   private
   params.require(:order).permit(:customer_id,:logged_out_on, :total_price, :payment_method, :receiver_name, :shipping_postal_code, :delivery_address, :order_status)
-  endrai
+  end

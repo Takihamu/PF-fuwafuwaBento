@@ -2,7 +2,7 @@ class Customers::ItemsController < ApplicationController
   def index
     @items = Item.all
     @customer = current_customer
-    @courses = Courses.all
+    @courses = Course.all
   end
 
   def show

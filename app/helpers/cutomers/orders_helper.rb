@@ -1,2 +1,0 @@
-module Cutomers::OrdersHelper
-end

@@ -6,6 +6,8 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.string :image_id
       t.text :detail
       t.integer :price
+      t.integer :energy
+      t.string :cal
       t.boolean :item_status, null: false, default: true
 
       t.timestamps
