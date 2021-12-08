@@ -29,6 +29,6 @@ class Admins::CoursesController < ApplicationController
 
   private
   def course_params
-    params.require(:course).permit(:name)
+    params.require(:course).permit(:name,:allergy)
   end
 end

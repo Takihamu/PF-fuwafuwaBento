@@ -24,7 +24,7 @@ class Customers::OrdersController < ApplicationController
   end
 
   def index
-    @orders = current_customer.orders.page(params[:page])
+    @orders = current_customer.orders
   end
 
   def show
@@ -36,5 +36,7 @@ class Customers::OrdersController < ApplicationController
   end
 
   private
+  def order_params
   params.require(:order).permit(:customer_id,:logged_out_on, :total_price, :payment_method, :receiver_name, :shipping_postal_code, :delivery_address, :order_status)
   end
+end

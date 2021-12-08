@@ -26,6 +26,10 @@
 </tr>
 
 <tr>
+  <th><%= f.label :energy, "エネルギー" %></th>
+  <td><%= f.text_field :energy, placeholder: "カロリーを記述して下さい" %></td>
+
+<tr>
   <th><%= f.label :item_status, '販売ステータス' %></th>
   <td><%= f.select :item_status, {
     "販売中": 'on_sale',

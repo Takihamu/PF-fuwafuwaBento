@@ -1,4 +1,4 @@
-<h2>コース一覧・追加</h2>
+<h2>コース・アレルギー一覧・追加</h2>
   <%= form_with model: [:admins, @course], local: true do |f| %>
   <%= f.label :name, "コース" %>
   <%= f.text_field :name, placeholder: "ジャンル名を入力" %>
@@ -12,7 +12,6 @@
   <% @courses.each do |course| %>
   <tr>
     <td><%= course.name %></td>
-    <td>
-      <%= link_to '編集する', edit_admins_course_path(course.id) %>
-    </td>
+    <td><%= link_to '編集する', edit_admins_course_path(course.id) %></td>
+  </tr>
   <% end %>

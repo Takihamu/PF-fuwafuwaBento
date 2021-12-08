@@ -37,7 +37,12 @@ end
     resources :cart_items, only:[:index, :create, :update, :destroy]
 
     #orders
-    resources :orders, only:[:new, :show, :index, :create]
+    resources :orders, only:[:new, :show, :index, :create] do
+      collection do
+        post 'orders/confirm' => 'orders#confirm'
+        get 'orders/complete' => 'orders#complete'
+      end
+    end
 
     #customers
     resources :customers, only:[:show, :edit, :update]

@@ -1,11 +1,23 @@
 <%= attachment_image_tag @item, :image, :fill, 200, 200, fallback: "no-image.jpg" %>
   <p><%= @item.item_name %></p>
   <p><%=  @item.detail %></p>
+  <p><%=  @item.energy %>kcal</p>
   <p>価格(一人前):¥<%= @item.add_tax_price.to_s(:delimited) %>(税込)</p>
 
   <%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>
     <%= f.hidden_field :item_id, value: @item.id %>
-    <%= f.hidden_field :customer_id, value: current_customer.id %>
-    <%= f.select :pieces, options_for_select((1..3).to_a) %>
-    <%= f.submit "カートに入れる" %>
+      <%= f.hidden_field :customer_id, value: current_customer.id %>
+      <tr>
+        <td>一人分</td>
+        <td><%= f.select :pieces, options_for_select((1..3).to_a) %></td>
+        <td><%= @item.add_tax_price.to_s(:delimited) %>(税込)</td>
+        <td><%= f.submit "カートに入れる" %></td>
+      </tr>
+
+      <tr>
+        <td>二人分</td>
+        <td><%= f.select :pieces, options_for_select((1..3).to_a) %></td>
+        <td><%= @item.add_tax_price.to_s(:delimited) * 1.5 %>(税込)</td>
+        <td><%= f.submit "カートに入れる" %></td>
+      <tr>
   <% end %>
