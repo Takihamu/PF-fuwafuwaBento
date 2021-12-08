@@ -36,6 +36,8 @@ end
     #cart_items
     resources :cart_items, only:[:index, :create, :update, :destroy]
 
+    delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
+
     #orders
     resources :orders, only:[:new, :show, :index, :create] do
       collection do
@@ -45,6 +47,11 @@ end
     end
 
     #customers
-    resources :customers, only:[:show, :edit, :update]
+    resources :customers, only:[:show, :edit, :update]do
+      collection do
+        get 'customers/leave' => 'customers#leave'
+        patch 'customers/out' => 'customers#out'
+      end
+    end
   end
 end

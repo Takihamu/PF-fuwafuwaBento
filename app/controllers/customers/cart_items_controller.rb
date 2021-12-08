@@ -7,19 +7,19 @@ class Customers::CartItemsController < ApplicationController
   end
 
   def create
-    @cart_items = CartItem.new(cart_item_params)
+    @cart_item = CartItem.new(cart_item_params)
     @item = @cart_item.item
     if @cart_item.save
-      redirect_to cart_item_path
+      redirect_to cart_items_path
     else
       redirect_to item_path(@item)
     end
   end
 
-  def updated
+  def update
     @cart_item = CartItem.find(params[:id])
     if @cart_item.update(cart_item_params)
-      redirect_to request.refere
+      redirect_to request.referer
     end
   end
 
