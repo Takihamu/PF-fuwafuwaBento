@@ -10,9 +10,9 @@ class Customers::CustomersController < ApplicationController
   end
 
   def update
-    customer = current_costomer
+    current_customer.update(customer_params)
     if customer.update(customer_params)
-      redirect_to customers_path
+      redirect_to customer_path(current_customer.id)
     else
       render 'edit'
     end

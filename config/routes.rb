@@ -34,14 +34,15 @@ end
     #items
     resources :items, only:[:show, :index]
     #cart_items
-    resources :cart_items, only:[:index, :create, :update, :destroy]
-
-    delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
-
+    resources :cart_items, only:[:index, :create, :update, :destroy]do
+      collection do
+        delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
+      end
+    end
     #orders
     resources :orders, only:[:new, :show, :index, :create] do
       collection do
-        post 'orders/confirm' => 'orders#confirm'
+        post 'orders/new' => 'orders#new'
         get 'orders/complete' => 'orders#complete'
       end
     end

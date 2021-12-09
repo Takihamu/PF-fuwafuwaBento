@@ -25,7 +25,7 @@ class Customers::CartItemsController < ApplicationController
 
   def destroy
     @cart_item = CartItem.find(params[:id])
-    if cart_item.destroy
+    if cart_items.destroy
       redirect_to request.refere
     end
   end
