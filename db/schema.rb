@@ -84,6 +84,9 @@ ActiveRecord::Schema.define(version: 2021_12_08_040705) do
     t.integer "energy"
     t.string "cal"
     t.boolean "item_status", default: true, null: false
+    t.date "logged_out_on"
+    t.date "start"
+    t.date "end"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -108,6 +111,8 @@ ActiveRecord::Schema.define(version: 2021_12_08_040705) do
     t.integer "payment_method"
     t.integer "order_status", default: 0, null: false
     t.date "logged_out_on"
+    t.date "start"
+    t.date "end"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,5 +1,6 @@
-json.array!(@order) do |order|
+json.array!(@orders) do |order|
   json.extract! order, :id, :logged_out_on
-  json.start order.starts_at
-  json.end order.ends_at
+  json.title order.order_status
+  json.start order.start
+  json.end order.end
 end

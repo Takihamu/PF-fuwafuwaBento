@@ -9,7 +9,9 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.integer :energy
       t.string :cal
       t.boolean :item_status, null: false, default: true
-
+      t.date :logged_out_on
+      t.date :start
+      t.date :end
       t.timestamps
     end
   end

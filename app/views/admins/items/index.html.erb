@@ -7,6 +7,7 @@
     <th>商品名</th>
     <th>税別価格</th>
     <th>コース一覧</th>
+    <th>発売日</th>
     <th>ステータス</th>
   </tr>
 
@@ -17,6 +18,7 @@
       <td><%= link_to item.item_name, admins_item_path(item.id) %></td>
       <td><%= item.price %></td>
       <td><%= item.course.name %></td>
+      <td><%= item.start %></td>
       <td>
         <% if item.item_status == 'on_sale' %>
           <span class="text-success">販売中</span>

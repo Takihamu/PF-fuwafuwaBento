@@ -47,5 +47,10 @@ $(function () {
           eventCalendar();
         });
         $(document).on('turbolinks:before-cache', clearCalendar);
+//$('#customer_id').val()
+// TODO: ここを動的に作り替える url(routing), hiddenで埋め込む, location.href適当なメソッドでとる
+        $('#calendar').fullCalendar({
+          events: '1.json'
+        });
     });
 });

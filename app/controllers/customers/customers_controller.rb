@@ -2,7 +2,9 @@ class Customers::CustomersController < ApplicationController
   before_action :ensure_correct_customer, {only: [:show, :edit]}
 
   def show
-    @customer = Customer.find(params[:id])
+    #@customer = Customer.find(params[:id])
+    @orders = current_customer.orders
+    #pp @orders
   end
 
   def edit

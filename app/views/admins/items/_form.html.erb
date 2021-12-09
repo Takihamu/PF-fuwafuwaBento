@@ -36,5 +36,15 @@
     "売り切れ": 'sold_out'
   } %></td>
 </tr>
+
+<tr>
+  <th><%= f.label :start,'発売日' %></th>
+  <td><%= f.date_field :start %> </td>
+</tr>
+
+<tr>
+  <th><%= f.label :end,'発売終了日' %></th>
+  <td><%= f.date_field :end %> </td>
+</tr>
 <%= f.submit "新規登録" %>
 <% end %>

@@ -10,7 +10,8 @@ class CreateOrders < ActiveRecord::Migration[5.2]
       t.integer :payment_method
       t.integer :order_status, null: false, default: 0
       t.date    :logged_out_on
-
+      t.date :start
+      t.date :end
       t.timestamps
     end
   end

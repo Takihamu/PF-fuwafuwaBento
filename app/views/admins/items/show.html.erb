@@ -21,6 +21,11 @@
   </tr>
 
   <tr>
+    <td>発売日</td>
+    <td><%= @item.start %></td>
+  </tr>
+
+  <tr>
     <td>販売ステータス</td>
       <td><% if @item.item_status == "on_sale" %>
         <span class="text-success">販売中</span>
