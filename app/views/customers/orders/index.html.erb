@@ -11,11 +11,6 @@
 
 <% @orders.each do |order| %>
 <td><%= order.created_at.strftime('%Y年%m月%d日') %></td>
-<td>
-  〒<%= order.shipping_postal_code %><br>
-    <%= order.delivery_address %><br>
-     <%= order.receiver_name %> 様
-</td>
 
 <td>
   <% order.order_items.all.each do |order| %>

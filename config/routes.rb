@@ -32,7 +32,9 @@ end
     root to: 'homes#top'
     get 'homes/about' => 'homes#about'
     #items
-    resources :items, only:[:show, :index]
+    resources :items, only:[:show, :index]do
+      resources :favorites, only: [:create, :destroy]
+    end
     #cart_items
     resources :cart_items, only:[:index, :create, :update, :destroy]do
       collection do
@@ -51,6 +53,7 @@ end
     resources :customers, only:[:show, :edit, :update]do
       collection do
         get 'customers/leave' => 'customers#leave'
+        get :favorites
         patch 'customers/out' => 'customers#out'
       end
     end

@@ -2,8 +2,12 @@ class Customers::CustomersController < ApplicationController
   before_action :ensure_correct_customer, {only: [:show, :edit]}
 
   def show
-    #@customer = Customer.find(params[:id])
+    @customer = Customer.find(params[:id])
     @orders = current_customer.orders
+
+    favorites = Favorite.where(customer_id: current_customer.id)
+    @favorite_list = Item.find(favorites)
+
     #pp @orders
   end
 
