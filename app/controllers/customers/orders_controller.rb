@@ -8,17 +8,14 @@ class Customers::OrdersController < ApplicationController
   def create
     @cart_items = current_customer.cart_items
     @order = current_customer.orders.new(order_params)
-    if @order.save
+
+    if @order.save!
       @cart_items.each do |cart_item|
-      order_item = OrderItem.new
-      order_item.item_id = cart_item.item_id
-      order_item.order_id = @order.id
-      order_item.tax_price = cart_item.item.price
-      order_item.number_of_piaces = cart_item.pieces
-      order_item.save
-    end
-      redirect_to orders_complete_orders_path
+        OrderItem.insert_order_item(cart_item, @order)
+      end
+
       @cart_items.destroy_all
+      redirect_to orders_complete_orders_path
     else
       @order = Order.new(order_params)
       render.new
@@ -40,6 +37,6 @@ class Customers::OrdersController < ApplicationController
 
   private
   def order_params
-  params.require(:order).permit(:customer_id,:logged_out_on, :total_price, :payment_method, :receiver_name, :shipping_postal_code, :delivery_address, :order_status)
+    params.require(:order).permit(:customer_id, :logged_out_on, :total_price, :payment_method, :receiver_name, :shipping_postal_code, :delivery_address, :order_status)
   end
 end

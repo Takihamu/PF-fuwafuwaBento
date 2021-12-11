@@ -9,6 +9,7 @@ class Customers::CartItemsController < ApplicationController
   def create
     @cart_item = CartItem.new(cart_item_params)
     @item = @cart_item.item
+
     if @cart_item.save
       redirect_to cart_items_path
     else
@@ -18,6 +19,7 @@ class Customers::CartItemsController < ApplicationController
 
   def update
     @cart_item = CartItem.find(params[:id])
+
     if @cart_item.update(cart_item_params)
       redirect_to request.referer
     end
@@ -25,8 +27,11 @@ class Customers::CartItemsController < ApplicationController
 
   def destroy
     @cart_item = CartItem.find(params[:id])
-    if cart_items.destroy
-      redirect_to request.refere
+
+    if @cart_item.destroy
+      redirect_to request.referer
+    else
+      render :index
     end
   end
 

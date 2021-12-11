@@ -17,7 +17,6 @@
 //= require fullcalendar
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require_tree .
 
 $(document).ready(function () {
@@ -33,24 +32,4 @@ $(document).ready(function () {
     keyboardOnAlways : true,
     hidePrevious : false
   });
-});
-
-$(function () {
-    $(document).on('turbolinks:load', function () {
-        function eventCalendar() {
-            return $('#calendar').fullCalendar({});
-        };
-        function clearCalendar() {
-            $('#calendar').html('');
-        };
-        $(document).on('turbolinks:load', function () {
-          eventCalendar();
-        });
-        $(document).on('turbolinks:before-cache', clearCalendar);
-//$('#customer_id').val()
-// TODO: ここを動的に作り替える url(routing), hiddenで埋め込む, location.href適当なメソッドでとる
-        $('#calendar').fullCalendar({
-          events: '1.json'
-        });
-    });
 });
