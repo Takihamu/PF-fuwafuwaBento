@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :items, only:[:new, :show, :index, :edit, :create, :update]
 
   #courses
-  resources :courses, only:[:index, :edit, :create, :update]
+  resources :courses, only:[:index, :edit, :create, :update, :destroy]
 
   #customers
   resources :customers, only:[:index, :edit, :show, :update]
