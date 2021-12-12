@@ -5,6 +5,6 @@ $(function () {
   //console.log(customer_id)
 
   $('#calendar').fullCalendar({
-    events: `${customer_id}.json`,
+    events: `${customer_id}.json`
   })
 })
