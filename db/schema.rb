@@ -82,8 +82,8 @@ ActiveRecord::Schema.define(version: 2021_12_10_125425) do
     t.text "detail"
     t.integer "price"
     t.integer "energy"
-    t.string "cal"
     t.boolean "item_status", default: true, null: false
+    t.integer "course_name"
     t.date "logged_out_on"
     t.date "start"
     t.date "end"

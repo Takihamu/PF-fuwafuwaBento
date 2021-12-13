@@ -7,8 +7,8 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.text :detail
       t.integer :price
       t.integer :energy
-      t.string :cal
       t.boolean :item_status, null: false, default: true
+      t.integer :course_name
       t.date :logged_out_on
       t.date :start
       t.date :end

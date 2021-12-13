@@ -1,8 +1,12 @@
+<nav class="navbar navbar-expand-lg navbar-light border-bottom">
+ <header class="container">
+  <div class="col-sm-9 mb-5">
 <% unless admin_signed_in? %>
  <%= render "customers/shared/header" %>
 
  <% else %>
-   <%= link_to admins_items_path, class: "navbar-brand" do %>
+   <ul class="navbar-nav ml-auto">
+    <%= link_to admins_items_path, class: "navbar-brand" do %>
      <%= image_tag 'headlogo.png', { height:50 } %>
    <% end %>
 
@@ -21,11 +25,8 @@
    </li>
 
    <li class="nav-item">
-     <%= link_to "コース一覧", admins_courses_path, class: "nav-link" %>
-   </li>
-
-   <li class="nav-item">
      <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link" %>
    </li>
 
    <% end %>
+   </nav>

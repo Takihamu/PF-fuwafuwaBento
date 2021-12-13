@@ -1,8 +1,27 @@
-<h2>注文履歴一覧</h2>
-<tr>
-  <th>注文日</th>
-  <th>お客様名</th>
-  <th>注文個数</th>
-</tr>
- <% @orders.each do |order| %>
-<% end %>
+<div class="container-fluid">
+  <h2 class="mt-4 fs-2 mb-5 col-15 text-center">注文履歴一覧</h2>
+  <table class="table justify-content-center">
+    <thead>
+      <div class="col-md-5 offset-md-2">
+        <table class="table justify-content-center">
+          <thead bgcolor="#f2c9ac">
+        <tr>
+          <th>お客様名</th>
+          <th>注文個数</th>
+        </tr>
+      </thead>
+
+      <tbody class="table-body" style="background-color:#fddea5">
+         <% @orders.each do |order| %>
+         <td>
+           <%= link_to admins_order_path(order) do %>
+        <% end %>
+        </td>
+        <td>
+          <%= order.order_items.sum(:number_of_piaces) %>
+        </td>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

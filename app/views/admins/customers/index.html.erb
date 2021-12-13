@@ -1,25 +1,39 @@
-<tr>
-  <th>会員ID</th>
-  <th>氏名</th>
-  <th>メールアドレス</th>
-  <th>ステータス</th>
-  <th></th>
-</tr>
-<% @customer.each do |customer| %>
-<tr>
-  <td><%= customer.id %></td>
-  <td><%= link_to  admins_customer_path(customer.id) do %>
-        <%=customer.last_name%><%= customer.first_name %>
-      <% end %>
-  </td>
-  <td><%= link_to admins_customer_path(customer) do %></td>
-  <td><%= customer.email %></td>
-  <td> <% if customer.is_deleted == false %>
-        <%= "有効" %>
-      <% else %>
-        <%= "退会済み" %>
-      <% end %>
-  </td>
-</tr>
-  <% end %>
-<% end %>
+<div class="contain">
+  <div class="row justify-content-center">
+    <div class="mx-auto col-12 col-xl-10">
+      <h2 class="mt-4 fs-2 mb-5 col-15 text-center">会員一覧</h2>
+    </div>
+  </div>
+
+  <div class="col-md-8 offset-md-2">
+    <table class="table justify-content-center">
+      <thead bgcolor="#f2c9ac">
+        <tr>
+          <th>会員ID</th>
+          <th>氏名</th>
+          <th>メールアドレス</th>
+          <th>ステータス</th>
+          <th></th>
+        </tr>
+        <tbody bgcolor="#fddea5">
+        <% @customer.each do |customer| %>
+        <tr>
+          <td><%= customer.id %></td>
+          <td><%=customer.last_name%><%= customer.first_name %>
+
+          </td>
+          <td><%= customer.email %></td>
+          <td> <% if customer.is_deleted == false %>
+                <%= "有効" %>
+              <% else %>
+                <%= "退会済み" %>
+              <% end %>
+          </td>
+          <td></td>
+        </tr>
+
+        <% end %>
+      </tbody>
+    </table>
+ </div>
+ </div>

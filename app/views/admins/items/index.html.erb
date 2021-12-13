@@ -1,32 +1,50 @@
-<h2>商品一覧</h2>
-  <%= link_to "", new_admins_item_path %>
+<div class="container">
+  <div class="row">
+    <div class="col-9">
+      <h2 class="mb-3">商品一覧</h2>
+    </div>
+  </div>
+    <div class="row">
+      <div class="col-12">
+        <table class="table">
+          <thead class="" style="background-color:#f2c9ac;">
 
-  <tr>
-    <th>商品ID</th>
-    <th></th>
-    <th>商品名</th>
-    <th>税別価格</th>
-    <th>コース一覧</th>
-    <th>発売日</th>
-    <th>ステータス</th>
-  </tr>
+            <tr>
+              <th>商品ID</th>
+              <th></th>
+              <th>商品名</th>
+              <th>税別価格</th>
+              <th>コース一覧</th>
+              <th>発売日</th>
+              <th>ステータス</th>
+            </tr>
+           </thead>
 
-  <% @item.each do |item| %>
-    <tr>
-      <td><%= item.id %></td>
-      <td><%= attachment_image_tag item, :image, :fill, 100, 100, format: 'jpeg' %></td>
-      <td><%= link_to item.item_name, admins_item_path(item.id) %></td>
-      <td><%= item.price %></td>
-      <td><%= item.course.name %></td>
-      <td><%= item.start %></td>
-      <td>
-        <% if item.item_status == 'on_sale' %>
-          <span class="text-success">販売中</span>
-        <% else %>
-          <span class="text-secondary">販売停止中</span>
-        <% end %>
-      </td>
-      <td><%= link_to "商品を編集する", edit_admins_item_path(item.id) %></td>
-    </tr>
-  <% end %>
-    <td><%= link_to "商品を追加する", new_admins_item_path %></td>
+          <tbody class="table-body" style="background-color:#fddea5;">
+            <% @item.each do |item| %>
+              <tr>
+                <td><%= item.id %></td>
+                <td><%= attachment_image_tag item, :image, :fill, 100, 100, format: 'jpeg' %></td>
+                <td><%= link_to item.item_name, admins_item_path(item.id) %></td>
+                <td><%= item.price %></td>
+                <td><%= item.course.name %></td>
+                <td><%= item.start %></td>
+                <td>
+                  <% if item.item_status == 'on_sale' %>
+                    <span class="text-success">販売中</span>
+                  <% else %>
+                    <span class="text-secondary">販売停止中</span>
+                  <% end %>
+                </td>
+              </tr>
+              <%= link_to "商品を編集する", edit_admins_item_path(item.id) %>
+            <% end %>
+
+          <div class="col-3 text-right">
+            <%= link_to "商品を追加する", new_admins_item_path, class:"far fa-plus-square", :style => "color: black;" %>
+          </div>
+        /tbody>
+      </table>
+    </div>
+  </div>
+  </div>
