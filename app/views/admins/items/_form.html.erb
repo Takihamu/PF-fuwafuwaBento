@@ -47,7 +47,10 @@
     <tr>
       <th><%= f.label :item_status, '販売ステータス' %></th>
       <td>
-        <%= f.select :item_status, :true %>
+        <%= f.radio_button :item_status, :true %>
+        <%= f.label :item_status, "販売中" %>
+        <%= f.radio_button :item_status,:false %>
+        <%= f.label :item_status, "販売停止" %>
       </td>
     </tr>
   </table>

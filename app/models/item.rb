@@ -4,7 +4,7 @@ class Item < ApplicationRecord
   has_many :cart_items, dependent: :destroy
   attachment :image
 
-  enum item_status: { on_sale: true, sold_out: false }
+  validates :item_status, inclusion: [true, false]
   enum course_name: { single: 0, randam: 1, season_single: 2, season_randam:3 }
 
   def add_tax_price

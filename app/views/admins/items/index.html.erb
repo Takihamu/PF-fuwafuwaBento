@@ -35,10 +35,10 @@
                 <td><%= item.start %></td>
                 <td><%= item.end %></td>
                 <td>
-                  <% if item.item_status == 0 %>
-                    <span class="text-success"><%= item.item_status_i18n %></span>
+                  <% if item.item_status? %>
+                    <span class="text-success">販売中</span>
                   <% else %>
-                    <span class="text-secondary"><%= item.item_status_i18n %></span>
+                    <span class="text-secondary">販売停止</span>
                   <% end %>
                 </td>
                 <td><%= link_to "商品を編集する", edit_admins_item_path(item.id),class:"far fa-plus-square", :style => "color: black;" %></td>
