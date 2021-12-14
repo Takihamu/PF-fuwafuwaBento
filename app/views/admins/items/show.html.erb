@@ -1,42 +1,68 @@
-<h2>商品詳細</h2>
-  <%= attachment_image_tag @item, :image, :fill, 500, 500, format: 'jpeg' %>
-  <tr>
-    <td>お弁当</td>
-    <td><%= @item.item_name %></td>
-  </tr>
+<div class="container">
+  <div class="row mb-3">
+    <div class="col-12">
+      <h2>商品詳細</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 px-3 mb-3 d-flex">
+      <%= attachment_image_tag @item, :image, :fill, 500, 500, format: 'jpeg' %>
+    </div>
+    <div class="col-md-6">
+      <table class="table table-borderless">
+        <tr>
+          <td>お弁当</td>
+          <td><%= @item.item_name %></td>
+        </tr>
 
-  <tr>
-    <td>お弁当説明</td>
-    <td><%= @item.detail %></td>
-  </tr>
+        <tr>
+          <td>お弁当説明</td>
+          <td><%= @item.detail %></td>
+        </tr>
 
-  <tr>
-    <td>税込み価格</td>
-    <td><%= @item.price %></td>
-  </tr>
+        <tr>
+          <td>税込み価格</td>
+          <td><%= @item.price %></td>
+        </tr>
 
-  <tr>
-    <td>注文形態</td>
-    <td><%= @item.course_name %></td>
-  </tr>
+        <tr>
+          <td>注文形態</td>
+          <td><%= @item.course_name_i18n %></td>
+        </tr>
 
-  <tr>
-    <td>発売日</td>
-    <td><%= @item.start %></td>
-  </tr>
+        <tr>
+          <td>発売日</td>
+          <td><%= @item.start %></td>
+        </tr>
 
-  <tr>
-    <td>販売ステータス</td>
-      <td><% if @item.item_status == "on_sale" %>
-        <span class="text-success">販売中</span>
-      <% else %>
-        <span class="text-danger">販売停止中</span>
-       <% end %></td>
-  </tr>
+        <tr>
+          <td>発売終了日</td>
+          <td><%= @item.end %></td>
+        </tr>
 
-  <tr>
-    <td></td>
-    <td>
-      <%= link_to "編集する", edit_admins_item_path(@item.id) %>
-    </td>
-  </tr>
+        <tr>
+          <td>熱量</td>
+          <td><%= @item.energy %></td>
+        </tr>
+
+        <tr>
+          <td>販売ステータス</td>
+          <td>
+          <% if @item.item_status? %>
+            <span class="text-success">販売中</span>
+          <% else %>
+            <span class="text-danger">販売停止中</span>
+          <% end %>
+            </td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td>
+            <%= link_to "編集する", edit_admins_item_path(@item.id),class: "btn btn-success" %>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

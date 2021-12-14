@@ -8,7 +8,7 @@
       <div class="col-12">
         <table class="table">
           <thead class="" style="background-color:#f2c9ac;">
-
+<%= link_to "商品を追加する", new_admins_item_path, class:"far fa-plus-square", :style => "color: black;" %>
             <tr>
               <th>商品ID</th>
               <th></th>
@@ -16,34 +16,40 @@
               <th>税別価格</th>
               <th>コース一覧</th>
               <th>発売日</th>
+              <th>発売終了日</th>
               <th>ステータス</th>
+              <th></th>
             </tr>
            </thead>
 
+
           <tbody class="table-body" style="background-color:#fddea5;">
             <% @item.each do |item| %>
+
               <tr>
                 <td><%= item.id %></td>
                 <td><%= attachment_image_tag item, :image, :fill, 100, 100, format: 'jpeg' %></td>
                 <td><%= link_to item.item_name, admins_item_path(item.id) %></td>
                 <td><%= item.price %></td>
-                <td><%= item.course.name %></td>
+                <td><%= item.course_name_i18n %></td>
                 <td><%= item.start %></td>
+                <td><%= item.end %></td>
                 <td>
-                  <% if item.item_status == 'on_sale' %>
-                    <span class="text-success">販売中</span>
+                  <% if item.item_status == 0 %>
+                    <span class="text-success"><%= item.item_status_i18n %></span>
                   <% else %>
-                    <span class="text-secondary">販売停止中</span>
+                    <span class="text-secondary"><%= item.item_status_i18n %></span>
                   <% end %>
                 </td>
+                <td><%= link_to "商品を編集する", edit_admins_item_path(item.id),class:"far fa-plus-square", :style => "color: black;" %></td>
+
               </tr>
-              <%= link_to "商品を編集する", edit_admins_item_path(item.id) %>
+
             <% end %>
 
           <div class="col-3 text-right">
-            <%= link_to "商品を追加する", new_admins_item_path, class:"far fa-plus-square", :style => "color: black;" %>
-          </div>
-        /tbody>
+
+        </tbody>
       </table>
     </div>
   </div>

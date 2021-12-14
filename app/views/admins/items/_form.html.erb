@@ -1,58 +1,62 @@
-<table class="mt-5">
-    <%= form_with model: [:admins, item], local: true do |f| %>
+<%= form_with model: [:admins, item], local: true do |f| %>
+  <table class="mt-5 table justify-content-center">
+    <tr>
+      <th><%= f.label :image, "商品画像" %></th>
+      <td><%= f.attachment_field :image %></td>
+    </tr>
 
-    <div class="col-md-5 offset-md-2">
-      <table class="table justify-content-center">
-        <thead bgcolor="#fddea5">
-      <tr>
-        <th><%= f.label :image, "商品画像" %></th>
-        <td><%= f.attachment_field :image %></td>
-      </tr>
+    <tr>
+      <th><%= f.label :item_name, "商品名" %></th>
+      <td><%= f.text_field :item_name, placeholder: "商品名" %></td>
+    </tr>
 
-      <tr>
-        <th><%= f.label :item_name, "商品名" %></th>
-        <td><%= f.text_field :item_name, placeholder: "商品名" %>
-      </tr>
+    <tr>
+      <th><%= f.label :detail, "商品説明" %></th>
+      <td><%= f.text_area :detail, placeholder: "ここに説明文を記述します" %></td>
+    </tr>
 
-      <tr>
-        <th><%= f.label :detail, "商品説明" %></th>
-        <td><%= f.text_area :detail, placeholder: "ここに説明文を記述します" %>
-      </tr>
+    <tr>
+      <th><%= f.label :course_name, "コース一覧" %></th>
+      <td><%= f.select :course_name, {
+          "単品注文": 'single',
+          "おまかせ注文": 'randam',
+          "季節限定単品注文": 'season_single',
+          "季節限定おまかせ注文": 'season_randam'
+          } %></td>
+    </tr>
 
-      <tr>
-        <th><%= f.label :course_name, "コース一覧" %></th>
-        <td><%= f.select :course_name, {
-            "単品注文": 'single',
-            "おまかせ注文": 'randam',
-            "季節限定単品注文": 'season_single',
-            "季節限定おまかせ注文": 'season_randam'
-            } %></td>
-      </tr>
+    <tr>
+      <th><%= f.label :start, "発売日" %></th>
+      <td><%= f.date_field :start, class: 'form-control' %></td>
+    </tr>
 
+    <tr>
+      <th><%= f.label :end, "発売終了日" %></th>
+      <td><%= f.date_field :end , class: 'form-control' %></td>
+    </tr>
 
-      <tr>
-        <th><%= f.label :price, "税抜き価格" %></th>
-        <td><%= f.text_field :price, placeholder: "商品の税別価格を記述して下さい" %>
-      </tr>
+    <tr>
+      <th><%= f.label :price, "税抜き価格" %></th>
+      <td><%= f.text_field :price, placeholder: "商品の税別価格を記述して下さい" %></td>
+    </tr>
 
-      <tr>
-        <th><%= f.label :energy, "エネルギー" %></th>
-        <td><%= f.text_field :energy, placeholder: "カロリーを記述して下さい" %></td>
+    <tr>
+      <th><%= f.label :energy, "エネルギー" %></th>
+      <td><%= f.text_field :energy, placeholder: "カロリーを記述して下さい" %></td>
 
-      <tr>
-        <th><%= f.label :item_status, '販売ステータス' %></th>
-        <td><%= f.select :item_status, {
-          "販売中": 'on_sale',
-          "販売停止": 'sold_out'
-        } %></td>
-      </tr>
-      </table>
+    <tr>
+      <th><%= f.label :item_status, '販売ステータス' %></th>
+      <td>
+        <%= f.select :item_status, :true %>
+      </td>
+    </tr>
+  </table>
 
-      <div class="row justify-content-center">
-        <div class="form-group row">
-          <div class="col-sm-4 offset-sm-4 mt-5">
-            <%= f.submit "新規登録", class:"btn btn-success"%>
-          </div>
-        </div>
+  <div class="row justify-content-center">
+    <div class="form-group row">
+      <div class="col-sm-4 offset-sm-4 mt-5">
+        <%= f.submit yield(:button_text), class:"btn btn-success"%>
       </div>
-      <% end %>
+    </div>
+  </div>
+<% end %>

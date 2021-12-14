@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 2021_12_10_125425) do
     t.integer "customer_id"
     t.integer "item_id"
     t.integer "pieces"
+    t.date "start_date"
+    t.date "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

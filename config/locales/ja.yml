@@ -2,16 +2,16 @@ ja:
   enums:
     item:
       item_status:
-        on_sale: "販売中"
-        sold_out: "販売停止"
+        on_sale: 販売中
+        sold_out: 販売停止
 
       course_name:
-        single: "単品注文"
-        randam: "おまかせ注文"
-        season_single: "季節限定単品注文"
-        season_randam: "季節限定おまかせ注文"
+        single: 単品注文
+        randam: おまかせ注文
+        season_single: 季節限定単品注文
+        season_randam: 季節限定おまかせ注文
 
   activerecord:
     errors:
       messages:
-        record_invalid: "データが不正です"
+        record_invalid: データが不正です
