@@ -3,6 +3,7 @@ class Customers::CartItemsController < ApplicationController
 
   def index
     @cart_items = CartItem.all
+    @order = Order.new
     @customer_cart_items = CartItem.where(customer_id: current_customer.id)
   end
 

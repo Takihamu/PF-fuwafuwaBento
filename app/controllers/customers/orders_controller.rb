@@ -1,6 +1,6 @@
 class Customers::OrdersController < ApplicationController
   def new
-    @order = Order.new
+    @order = Order.new(order_params)
     @cart_item = CartItem.where(customer_id: current_customer.id)
     @customer = current_customer
   end
@@ -37,6 +37,6 @@ class Customers::OrdersController < ApplicationController
 
   private
   def order_params
-    params.require(:order).permit(:customer_id, :logged_out_on, :total_price, :payment_method, :receiver_name, :shipping_postal_code, :delivery_address, :order_status)
+    params.require(:order).permit(:customer_id, :logged_out_on, :total_price, :payment_method,:start_date)
   end
 end

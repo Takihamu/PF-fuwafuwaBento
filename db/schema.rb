@@ -105,16 +105,11 @@ ActiveRecord::Schema.define(version: 2021_12_10_125425) do
 
   create_table "orders", force: :cascade do |t|
     t.integer "customer_id"
-    t.string "shipping_postal_code"
-    t.string "receiver_name"
-    t.string "delivery_address"
-    t.integer "shipping_fee"
     t.integer "total_price"
     t.integer "payment_method"
-    t.integer "order_status", default: 0, null: false
     t.date "logged_out_on"
-    t.date "start"
-    t.date "end"
+    t.date "start_date"
+    t.date "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
