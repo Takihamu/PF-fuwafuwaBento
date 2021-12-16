@@ -13,9 +13,9 @@
     <% if controller.class.parent.name == "Admins" %>
       <%= render "admins/shared/header" %>
     <% else %>
-      <%= render "customers/shared/header" %>
+      <%= render "customers/shared/header", q: @q%>
     <% end %>
     <%= yield %>
-
+      <%= render "customers/shared/footer", q: @q%>
   </body>
 </html>

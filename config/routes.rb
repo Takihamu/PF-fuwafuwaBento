@@ -32,8 +32,10 @@ end
     root to: 'homes#top'
     get 'homes/about' => 'homes#about'
     #items
-    resources :items, only:[:show, :index]do
-      resources :favorites, only: [:create, :destroy]
+    resources :items,only:[:show, :index]do
+      collection do
+        get 'search'
+      end
     end
     #cart_items
     resources :cart_items, only:[:index, :create, :update, :destroy]do

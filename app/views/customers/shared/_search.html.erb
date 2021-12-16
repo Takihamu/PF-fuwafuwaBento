@@ -1,0 +1,7 @@
+<h1>ユーザー検索</h1>
+<%= search_form_for q, url: search_items_path do |f| %>
+  <%= f.label :item_cont, 'ユーザー名' %>
+  <%= f.search_field :item_cont %>
+  <br>
+  <%= f.submit '検索' %>
+<% end %>

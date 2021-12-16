@@ -1,8 +1,15 @@
 class Customers::ItemsController < ApplicationController
+  before_action :set_q, only: [:index, :search, :show]
+
+
   def index
     @items = Item.all
     @customer = current_customer
     @courses = Course.all
+  end
+
+  def search
+    @results = @q.result
   end
 
   def show
@@ -16,5 +23,10 @@ class Customers::ItemsController < ApplicationController
     unless customer_signed_in?
       redirect_to '/customers/sign_in'
     end
+  end
+
+  private
+  def set_q
+    @q = Item.ransack(params[:q])
   end
 end

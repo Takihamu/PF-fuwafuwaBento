@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  before_action :set_q
   protect_from_forgery with: :exception
   def after_sign_in_path_for(resource)
     customer_path(current_customer.id)
@@ -23,4 +24,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :first_name, :last_name, :password, :password_confirmation,:postal_code, :address, :tel])
   end
 
+  def set_q
+    @q = Item.ransack(params[:q])
+  end
 end

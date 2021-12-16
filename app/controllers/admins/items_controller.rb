@@ -1,4 +1,4 @@
-class Admins::ItemsController < ApplicationController
+class Admins::ItemsController< ApplicationController
 
   def new
     @item = Item.new
@@ -6,14 +6,6 @@ class Admins::ItemsController < ApplicationController
 
   def index
     @item = Item.all
-  end
-
-  def search
-    if params[:keyeord].present?
-      @item = Item.where('item_name LIKE ?', "%#{params[:keyword]}%")
-    else
-      @items = Item.none
-    end
   end
 
   def create
@@ -44,6 +36,6 @@ class Admins::ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:image, :item_name,:detail,:price,:item_status,:course_id,:energy,:start_date,:end_date,:course_name)
+    params.require(:item).permit(:image, :item_name,:detail,:price,:item_status,:course_id,:energy,:start,:end,:course_name)
   end
 end
