@@ -1,7 +1,6 @@
-<nav class="navbar fixed-bottom navbar-dark bg-primary">
-  <div class="container">
-      <div class="col-sm-9 mb-4">
-        <ul class="navbar-nav ml-auto">
+<nav class="navbar fixed-bottom navbar-dark bg-warning">
+ <div class="col-sm-9 mb-4">
+  <ul class="navbar-nav ml-auto">
     <% if customer_signed_in? %>
      <li class="nav-item">
        <%= link_to "商品を注文する", items_path, class: "nav-link" %>
@@ -16,6 +15,7 @@
     </li>
 
   <% else %>
+
  <% end %>
 </span>
        </div>
