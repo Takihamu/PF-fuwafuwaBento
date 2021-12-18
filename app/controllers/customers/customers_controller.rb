@@ -4,6 +4,7 @@ class Customers::CustomersController < ApplicationController
   def show
     @customer = Customer.find(params[:id])
     @orders = current_customer.orders
+    @cart_items = CartItem.caliculate_customer_cart_items(current_customer)
     # favorites = Favorite.where(customer_id: current_customer.id)
     #@favorite_list = Item.find(favorites)
   end

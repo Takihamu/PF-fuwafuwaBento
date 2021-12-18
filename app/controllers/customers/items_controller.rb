@@ -16,6 +16,7 @@ class Customers::ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @order_item = OrderItem.new
     @customer = current_customer
+    @cart_items = CartItem.caliculate_customer_cart_items(current_customer)
     @courses = Course.all
   end
 

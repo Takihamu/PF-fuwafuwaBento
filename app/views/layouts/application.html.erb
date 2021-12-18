@@ -11,11 +11,11 @@
 
   <body>
     <% if controller.class.parent.name == "Admins" %>
-      <%= render "admins/shared/header" %>
+      <%= render "admins/shared/header", q: @q %>
     <% else %>
-      <%= render "customers/shared/header", q: @q%>
+      <%= render "customers/shared/header", q: @q, cart_items: @cart_items %>
     <% end %>
     <%= yield %>
-      <%= render "customers/shared/footer", q: @q%>
+    <%= render "customers/shared/footer", q: @q %>
   </body>
 </html>

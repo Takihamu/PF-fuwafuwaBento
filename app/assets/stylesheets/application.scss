@@ -17,6 +17,7 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+@import "customers/*";
 
 @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;500;700;900&display=swap');
 
@@ -25,5 +26,5 @@
 }
 
 body {
-  background-color: #fccc3c;
+  margin:150px;
 }

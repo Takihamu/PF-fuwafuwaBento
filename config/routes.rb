@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   get  'homes#top',to: 'admin/sessions#new'
 
   #items
-  resources :items, only:[:new, :show, :index, :edit, :create, :update]
+  resources :items, only:[:new, :show, :index, :edit, :create, :update]do
+  get 'search'
+end
 
   #courses
   resources :courses, only:[:index, :edit, :create, :update, :destroy]

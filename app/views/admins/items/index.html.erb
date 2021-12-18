@@ -15,8 +15,6 @@
               <th>商品名</th>
               <th>税別価格</th>
               <th>コース一覧</th>
-              <th>発売日</th>
-              <th>発売終了日</th>
               <th>ステータス</th>
               <th></th>
             </tr>
@@ -32,8 +30,6 @@
                 <td><%= link_to item.item_name, admins_item_path(item.id) %></td>
                 <td><%= item.price %></td>
                 <td><%= item.course_name_i18n %></td>
-                <td><%= item.start %></td>
-                <td><%= item.end %></td>
                 <td>
                   <% if item.item_status? %>
                     <span class="text-success">販売中</span>

@@ -2,7 +2,7 @@ class Customers::CartItemsController < ApplicationController
   before_action :move_to_signed_in
 
   def index
-    @cart_items = CartItem.all
+    @cart_items = CartItem.caliculate_customer_cart_items(current_customer)
     @order = Order.new
     @customer_cart_items = CartItem.where(customer_id: current_customer.id)
   end
@@ -30,7 +30,6 @@ class Customers::CartItemsController < ApplicationController
     @cart_item = CartItem.find(params[:id])
 
     if @cart_item.destroy
-      redirect_to request.referer
     else
       render :index
     end
