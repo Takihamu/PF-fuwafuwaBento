@@ -7,14 +7,10 @@
   background-color: #fccc3c;
 }
 
-#introduction{
-  display: flex;
-  justify-content: space-between;
-}
-
 #images{
-  height: 1000px;
-  width: 60%;
+  justify-content: flex-end;
+  height: 600px;
+  width: 100%;
 }
 .image1 {
   height: 1000px;

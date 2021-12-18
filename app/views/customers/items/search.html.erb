@@ -1,0 +1,21 @@
+<h1>検索結果</h1>
+<table>
+   <thead>
+     <tr>
+       <th>商品名</th>
+       <th>商品説明</th>
+       <th>熱量</th>
+       <th>価格(並盛）</th>
+     </tr>
+    <tbody>
+      <% @results.each do |item| %>
+      <tr>
+        <td><%= @item.item_name %></td>
+        <td><%=  @item.detail %></td>
+        <td><%=  @item.energy %>kcal</td>
+        <td>¥<%= @item.add_tax_price.to_s(:delimited) %>(税込)</td>
+        <td><%= link_to '詳細を見る',  link_to item_path(item.id) %>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>

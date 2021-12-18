@@ -25,7 +25,7 @@ TOPページにカレンダーが記載されているので、利用ユーザ�
 
 ### 主な利用シーン
 ・ちょっとした隙間時間に注文をしたいとき<br>
-・１週間分・１か月分のお弁当を一度に宅配予約したいとき
+・複数のお弁当を一度に宅配予約したいとき
 
 ## 設計書
 ・[ER図](https://drive.google.com/file/d/1YTqqCqX76iA_YrZ1r8Mm890nM57kksG_/view?usp=sharing)<br>
