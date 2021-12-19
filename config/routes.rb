@@ -35,7 +35,7 @@ end
     get 'homes/about' => 'homes#about'
     #items
     resources :items,only:[:show, :index]do
-      resources :favorites, only:[:create,:destroy]
+      resource :favorites, only:[:create,:destroy]
       collection do
         get 'search'
       end
