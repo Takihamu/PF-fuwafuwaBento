@@ -1,4 +1,5 @@
 class Customers::ItemsController < ApplicationController
+  before_action :move_to_signed_in, except: [:index]
   before_action :set_q, only: [:index, :search, :show]
 
 
@@ -9,7 +10,8 @@ class Customers::ItemsController < ApplicationController
   end
 
   def search
-    @results = @q.result
+    @search = Item.ransack(params[:q])
+    @results = @q.result(distinct: true)
   end
 
   def show

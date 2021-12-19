@@ -10,11 +10,11 @@
     <tbody>
       <% @results.each do |item| %>
       <tr>
-        <td><%= @item.item_name %></td>
-        <td><%=  @item.detail %></td>
-        <td><%=  @item.energy %>kcal</td>
-        <td>¥<%= @item.add_tax_price.to_s(:delimited) %>(税込)</td>
-        <td><%= link_to '詳細を見る',  link_to item_path(item.id) %>
+        <td><%= item.item_name %></td>
+        <td><%= item.detail %></td>
+        <td><%= item.energy %>kcal</td>
+        <td>¥<%= item.add_tax_price.to_s(:delimited) %>(税込)</td>
+        <td><%= link_to '詳細を見る', item_path(item.id) %></td>
       </tr>
       <% end %>
     </tbody>

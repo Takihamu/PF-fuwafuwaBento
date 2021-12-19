@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
   has_many :order_items, dependent: :destroy
-  has_many :favorites,dependent: :destroy
+  has_many :favorites, dependent: :destroy
   has_many :cart_items, dependent: :destroy
   attachment :image
 
@@ -9,5 +9,9 @@ class Item < ApplicationRecord
 
   def add_tax_price
      (self.price * 1.10).round
+  end
+
+  def favorited_by?(customer)
+    favorites.where(customer_id: customer.id).exists?
   end
 end

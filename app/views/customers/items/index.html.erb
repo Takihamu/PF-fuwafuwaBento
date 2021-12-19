@@ -14,6 +14,19 @@
             <p class="card-text"><%= item.detail %></p>
             <h3><%= item.add_tax_price.to_s(:delimited) %>円</h3>
             <button type="button" class="btn btn-outline-warning"><%= link_to "注文する",item_path(item.id) %></button>
+
+            <% if item.favorited_by?(current_customer) %>
+            <p><%= link_to item_favorites_path(item), method: :delete,remote: true do %>
+              ☆お気に入り削除
+              <% end %>
+            </p>
+              <% else %>
+            <p>
+              <%= link_to item_favorites_path(item), method: :post do %>
+              ☆お気に入りに追加
+              <% end %>
+            </p>
+            <% end %>
           </div>
         </div>
       </div>
