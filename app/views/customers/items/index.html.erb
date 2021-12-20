@@ -1,4 +1,13 @@
 <div class="container" id="items-container">
+  <%#= if @favorite_items.any? %>
+    <%# @favorite_items.each do |item|%>
+    <%#= render 'items/item', @item: item %>
+  <%# end %>
+  </div>
+
+
+
+
   <h1>商品一覧</h1>
   <div class="row">
     <% @items.each do |item| %>

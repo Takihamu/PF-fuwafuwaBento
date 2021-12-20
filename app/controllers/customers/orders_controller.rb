@@ -3,6 +3,7 @@ class Customers::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @cart_item = CartItem.where(customer_id: current_customer.id)
     @customer = current_customer
+    @cart_items = CartItem.caliculate_customer_cart_items(current_customer)
   end
 
   def create
@@ -23,10 +24,12 @@ class Customers::OrdersController < ApplicationController
   end
 
   def index
+    @cart_items = CartItem.caliculate_customer_cart_items(current_customer)
     @orders = current_customer.orders
   end
 
   def show
+    @cart_items = CartItem.caliculate_customer_cart_items(current_customer)
     @order = Order.find(params[:id])
     @ordered_items = @order.order_items
     @cart_items = current_customer.cart_items.all

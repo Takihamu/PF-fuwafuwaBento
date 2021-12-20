@@ -1,41 +1,30 @@
 <div class="container">
-  <div class="row mb-5 mx-1">
-     <div class="col mb-3">
-      <h3>注文履歴詳細</h3>
-        <div class="row mt-5">
-          <div class="col-9">
-        <p>注文情報</p>
-        <table class="table table-bordered">
-          <tbody>
-          <tr>
-            <th>注文日</th>
-            <%= @order.created_at.strftime('%Y年%m月%d日') %>
-          </tr>
+  <h3>注文履歴詳細</h3>
+    <p>注文情報</p>
 
-          <tr>
-            <th>お届け日</th>
-            <td><%= @order.start_date %></td>
-          </tr>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>注文日</th>
+        <th>お届け日</th>
+        <th>商品名</th>
+        <th>単価（税込）</th>
+        <th>個数</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <% @order.order_items.each do |order_item| %>
+        <td><%= @order.created_at.strftime('%Y年%m月%d日') %></td>
+        <td><%= @order.start_date %></td>
+        <td><%= order_item.item.item_name %></td>
+        <td>¥<%= (order_item.item.price * 1.1).floor.to_s(:delimited) %></td>
+        <td><%= order_item.number_of_piaces %></td>
 
-          <p>請求情報</p>
-            <tr>
-              <th>ご請求金額</th>
-              <td>¥<%= @order.total_price %></td>
-            </tr>
+    </tbody>
+    <% end %>
+    </tr>
+  </table>
 
-            <p>注文内容</p>
-              <tr>
-                <th>商品名</th>
-                <th>単価（税込）</th>
-                <th>個数</th>
-                <th>小計</th>
-              </tr>
-              <% @order.order_items.each do |order_item| %>
-
-              <tr>
-                <td><%= order_item.item.item_name %></td>
-                <td>¥<%= (order_item.item.price * 1.1).floor %></td>
-                <td><%= order_item.number_of_piaces %></td>
-                <td>¥<%= (order_item.number_of_piaces * order_item.item.price * 1.1).floor %></td>
-              </tr>
-            <% end %>
+  <h4>請求金額</h4>
+  <h2>¥<%= @order.total_price.to_s(:delimited) %></h2>

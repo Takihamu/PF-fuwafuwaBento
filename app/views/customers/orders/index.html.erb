@@ -1,11 +1,13 @@
-<div class="container my-5" style="height: 650px;">
+<div class="container" id="cartritems-container">
+  <h3 class="text title-text">注文履歴一覧</h3>
+  <% if @orders.exists? %>
   <div class="row">
     <div class="offset-1 text-center">
-      <h3 class="text title-text">注文履歴一覧</h3>
+
     </div>
   </div>
 
-    <% if @orders.exists? %>
+
 
     <div class="row mt-5">
       <table class="table table-bordered table-hover">
@@ -29,7 +31,7 @@
 
 
 
-            <td>¥<%= order.total_price %></td>
+            <td>¥<%= order.total_price.to_s(:delimited) %></td>
             <td>
               <%= link_to "表示する", order_path(order.id) %>
             </td>

@@ -1,11 +1,11 @@
-<div class='container'>
-  <div class='col-md-9 offset-md-1'>
+<div class="container" id="items-container">
+  <div class="col-lg-6 col-md-7 mb-5">
     <div class='col'>
-      <%= attachment_image_tag @item, :image, :fill, 200, 200, fallback: "no-image.jpg" %>
+      <%= attachment_image_tag @item, :image, :fill, 500, 500, fallback: "no-image.jpg" %>
     </div>
 
     <div class='col'>
-        <p><%= @item.item_name %></p>
+        <h3><%= @item.item_name %></h3>
         <p><%=  @item.detail %></p>
         <p><%=  @item.energy %>kcal</p>
         <p>価格(並サイズ):¥<%= @item.add_tax_price.to_s(:delimited) %>(税込)</p>
