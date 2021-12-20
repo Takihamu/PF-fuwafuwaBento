@@ -1,7 +1,6 @@
 class Customers::ItemsController < ApplicationController
   before_action :move_to_signed_in, except: [:index]
-  before_action :set_q, only: [:index, :search, :show]
-
+  before_action :set_q, only: %i[index search show]
 
   def index
     @items = Item.all
@@ -23,12 +22,11 @@ class Customers::ItemsController < ApplicationController
   end
 
   def move_to_signed_in
-    unless customer_signed_in?
-      redirect_to '/customers/sign_in'
-    end
+    redirect_to '/customers/sign_in' unless customer_signed_in?
   end
 
   private
+
   def set_q
     @q = Item.ransack(params[:q])
   end

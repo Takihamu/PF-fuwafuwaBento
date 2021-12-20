@@ -9,5 +9,5 @@ class Customer < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :order_items, dependent: :destroy
 
-  validates :is_deleted, inclusion:{in: [true, false]}
+  validates :is_deleted, inclusion: { in: [true, false] }
 end

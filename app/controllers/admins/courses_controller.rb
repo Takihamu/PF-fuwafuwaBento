@@ -28,11 +28,12 @@ class Admins::CoursesController < ApplicationController
   end
 
   def destroy
-  @course = Course.find(params[:id])
-  @course.destroy
+    @course = Course.find(params[:id])
+    @course.destroy
   end
 
   private
+
   def course_params
     params.require(:course).permit(:name)
   end

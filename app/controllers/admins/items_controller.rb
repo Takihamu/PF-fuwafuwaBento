@@ -1,5 +1,4 @@
-class Admins::ItemsController< ApplicationController
-
+class Admins::ItemsController < ApplicationController
   def new
     @item = Item.new
   end
@@ -35,7 +34,9 @@ class Admins::ItemsController< ApplicationController
   end
 
   private
+
   def item_params
-    params.require(:item).permit(:image, :item_name,:detail,:price,:item_status,:course_id,:energy,:start,:end,:course_name)
+    params.require(:item).permit(:image, :item_name, :detail, :price, :item_status, :course_id, :energy, :start, :end,
+                                 :course_name)
   end
 end

@@ -5,10 +5,10 @@ class Item < ApplicationRecord
   attachment :image
 
   validates :item_status, inclusion: [true, false]
-  enum course_name: { single: 0, randam: 1, season_single: 2, season_randam:3 }
+  enum course_name: { single: 0, randam: 1, season_single: 2, season_randam: 3 }
 
   def add_tax_price
-     (self.price * 1.10).round
+    (price * 1.10).round
   end
 
   def favorited_by?(customer)

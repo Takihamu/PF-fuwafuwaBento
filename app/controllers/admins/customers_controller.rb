@@ -1,5 +1,4 @@
 class Admins::CustomersController < ApplicationController
-
   def index
     @customer = Customer.all
   end
@@ -22,7 +21,8 @@ class Admins::CustomersController < ApplicationController
   end
 
   private
+
   def customer_params
-    params.require(:customer).permit(:first_name,:last_name,:postal_code,:address,:tel,:is_deleted)
+    params.require(:customer).permit(:first_name, :last_name, :postal_code, :address, :tel, :is_deleted)
   end
 end

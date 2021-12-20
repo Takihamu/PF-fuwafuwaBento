@@ -32,11 +32,11 @@ class Customers::OrdersController < ApplicationController
     @cart_items = current_customer.cart_items.all
   end
 
-  def complete
-  end
+  def complete; end
 
   private
+
   def order_params
-    params.require(:order).permit(:customer_id, :logged_out_on, :total_price, :payment_method,:start_date)
+    params.require(:order).permit(:customer_id, :logged_out_on, :total_price, :payment_method, :start_date)
   end
 end

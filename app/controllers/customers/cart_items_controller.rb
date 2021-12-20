@@ -21,9 +21,7 @@ class Customers::CartItemsController < ApplicationController
   def update
     @cart_item = CartItem.find(params[:id])
 
-    if @cart_item.update(cart_item_params)
-      redirect_to request.referer
-    end
+    redirect_to request.referer if @cart_item.update(cart_item_params)
   end
 
   def destroy
@@ -36,19 +34,16 @@ class Customers::CartItemsController < ApplicationController
   end
 
   def destroy_all
-    if CartItem.destroy_all
-      redirect_to request.refere
-    end
+    redirect_to request.refere if CartItem.destroy_all
   end
 
   def move_to_signed_in
-    unless customer_signed_in?
-      redirect_to  '/customers/sign_in'
-    end
+    redirect_to '/customers/sign_in' unless customer_signed_in?
   end
 
   private
+
   def cart_item_params
-    params.require(:cart_item).permit(:customer_id, :item_id, :pieces,:start_date,:end_date)
+    params.require(:cart_item).permit(:customer_id, :item_id, :pieces, :start_date, :end_date)
   end
 end

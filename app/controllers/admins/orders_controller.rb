@@ -2,11 +2,11 @@ class Admins::OrdersController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    if params[:customer_id]
-      @orders = Order.where(customer_id: params[:customer_id])
-    else
-      @orders = Order.all
-    end
+    @orders = if params[:customer_id]
+                Order.where(customer_id: params[:customer_id])
+              else
+                Order.all
+              end
   end
 
   def show
@@ -21,7 +21,8 @@ class Admins::OrdersController < ApplicationController
   end
 
   private
+
   def order_params
-  params.require(:order).permit(:status)
+    params.require(:order).permit(:status)
   end
 end
