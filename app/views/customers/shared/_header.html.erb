@@ -5,24 +5,36 @@
         <%= image_tag 'headlogo.png', { height:80 } %>
       <% end %>
 
-      <ul class="navbar-nav ml-auto">
         <% if customer_signed_in? %>
           <span class="navbar-text">
             ようこそ!<%= current_customer.last_name %>さん
           </span>
           <li class="nav-item">
-            <%= link_to cart_items_path, class: "nav-link" do %>
+            <%= link_to "カレンダーを見る", customer_path(current_customer), class: "fas fa-home" %>
+          </li>
+
+            <li class="nav-item">
+           <%= link_to "お弁当を注文する", items_path, class: "fas fa-utensils" %>
+        </li>
+
+
+          <li class="nav-item">
+            <%= link_to "注文に進む",cart_items_path, class: "fas fa-cart-plus" %>
               <div id="cart_items_count">
                 <% if cart_items.present? %>
                   <%= cart_items.count %>
                 <% end %>
               </div>
-              <i class="fas fa-cart-plus"></i>
-             <% end %>
+           </li>
+
+          <li class="nav-item">
+            <%= link_to "注文履歴", orders_path, class: "fas fa-truck" %>
           </li>
 
+
+
             <%= search_form_for q, url: search_items_path, class: "form-inline" do |f| %>
-              <%= f.search_field :item_name_cont, class: "form-control mr-sm-2" %>
+              <%= f.search_field:item_name_cont, class: "form-control mr-sm-2" %>
             <%= f.submit '検索' %>
             <% end %>
 

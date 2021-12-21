@@ -34,7 +34,7 @@ class Customers::CartItemsController < ApplicationController
   end
 
   def destroy_all
-    redirect_to request.refere if CartItem.destroy_all
+    redirect_to cart_items_path if CartItem.destroy_all
   end
 
   def move_to_signed_in
