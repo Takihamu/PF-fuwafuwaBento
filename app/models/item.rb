@@ -4,6 +4,8 @@ class Item < ApplicationRecord
   has_many :cart_items, dependent: :destroy
   attachment :image
 
+  Item.left_joins(:favorites)
+
   validates :item_status, inclusion: [true, false]
   enum course_name: { single: 0, randam: 1, season_single: 2, season_randam: 3 }
 

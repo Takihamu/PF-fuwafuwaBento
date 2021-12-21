@@ -7,7 +7,17 @@ class Customer < ApplicationRecord
   has_many :orders, dependent: :destroy
   has_many :cart_items, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :items, through: :favorites
   has_many :order_items, dependent: :destroy
 
   validates :is_deleted, inclusion: { in: [true, false] }
+
+  #def favorited_items
+    #favorites  = current_customer.favorites
+    #favorites_items = []
+    #favorites.each do |favorite|
+      #favorites_items <<= favorite.item
+    #end
+    #return favorite_items
+  #end
 end

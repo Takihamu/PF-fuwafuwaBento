@@ -1,14 +1,4 @@
-<div class="container" id="items-container">
-  <h1>お気に入り商品</h1>
-  <% @favorite_items.each do |item|%>
-    <%= render 'item', item: item %>
-  <% end %>
-</div>
-
- <div class="row">
-  <h1>商品一覧</h1>
-
-    <% @items.each do |item| %>
+    <div class="row">
     <div class="col-lg-3 col-md-7 mb-5">
       <div class="card-deck" style="width: 19rem;">
         <div class="shadow-sm card">
@@ -30,6 +20,3 @@
         </div>
       </div>
     </div>
-    <% end %>
-   </div>
-</div>

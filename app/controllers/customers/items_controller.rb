@@ -7,6 +7,7 @@ class Customers::ItemsController < ApplicationController
     @items = Item.all
     @customer = current_customer
     @cart_items = CartItem.caliculate_customer_cart_items(current_customer)
+    @favorite_items = current_customer.items.includes(:favorites).order("favorites.created_at DESC")
   end
 
   def search
