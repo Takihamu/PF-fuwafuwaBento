@@ -20,12 +20,12 @@
 
           <li class="nav-item">
             <%= link_to "注文に進む",cart_items_path, class: "fas fa-cart-plus" %>
-              <div id="cart_items_count">
+           </li>
+           <li id="cart_items_count">
                 <% if cart_items.present? %>
                   <%= cart_items.count %>
                 <% end %>
-              </div>
-           </li>
+            </li>
 
           <li class="nav-item">
             <%= link_to "注文履歴", orders_path, class: "fas fa-truck" %>
