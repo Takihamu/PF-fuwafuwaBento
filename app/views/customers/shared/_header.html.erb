@@ -9,26 +9,26 @@
           <span class="navbar-text">
             ようこそ!<%= current_customer.last_name %>さん
           </span>
-          <li class="nav-item">
-            <%= link_to "カレンダーを見る", customer_path(current_customer), class: "fas fa-home" %>
+          <ul class="navbar-nav ml-auto">
+          <li class="mr-1">
+            <%= link_to "カレンダーを見る", customer_path(current_customer), class: "btn mr-5", style: "background-color: #800000; color: white; " %>
           </li>
 
-            <li class="nav-item">
-           <%= link_to "お弁当を注文する", items_path, class: "fas fa-utensils" %>
+            <li class="mr-1">
+           <%= link_to "お弁当を注文する", items_path, class: "btn mr-5", style: "background-color: #ffa500; color: white; " %>
         </li>
 
 
-          <li class="nav-item">
-            <%= link_to "注文に進む",cart_items_path, class: "fas fa-cart-plus" %>
-           </li>
-           <li id="cart_items_count">
+          <li class="mr-1">
+            <%= link_to "注文に進む",cart_items_path, class: "btn mr-5", style: "background-color: #800000; color: white; " %>
+            <i class="fas fa-cart-plus"></i>
                 <% if cart_items.present? %>
                   <%= cart_items.count %>
                 <% end %>
             </li>
 
-          <li class="nav-item">
-            <%= link_to "注文履歴", orders_path, class: "fas fa-truck" %>
+          <li class="mr-1">
+            <%= link_to "注文履歴", orders_path, class: "btn mr-5", style: "background-color: #ffa500; color: white; " %>
           </li>
 
 
@@ -39,8 +39,8 @@
             <% end %>
 
         <% else %>
-        <%= link_to "新規会員登録", new_customer_registration_path,class: "btn mr-5", style: "background-color: #e96b22; color: white;" %>
-      <%= link_to "会員はこちら", new_customer_session_path, class: "btn", style: "background-color: #6599cc; color: white;" %>
+        <%= link_to "新規会員登録", new_customer_registration_path,class: "btn ", style: "background-color: #e96b22; color: white;" %>
+      <%= link_to "会員はこちら", new_customer_session_path, class: "btn", style: "background-color: #cd5c5c; color: white;" %>
         <% end %>
       </ul>
     </div>

@@ -1,10 +1,8 @@
 <div class="container" id="items-container">
   <h1>お気に入り商品</h1>
   <% @favorite_items.each do |item|%>
-  <div class = "favorite" id='item_<%= item.id %>'>
     <%= render 'item', item: item %>
   <% end %>
-  </div>
 </div>
 
  <div class="row">
