@@ -33,6 +33,7 @@ Rails.application.routes.draw do
     # homes
     root to: 'homes#top'
     get 'homes/about' => 'homes#about'
+    post 'customers/guest_sign_in',to: 'customers/sessions#cus_sign_in'
     # items
     resources :items, only: %i[show index] do
       resource :favorites, only: %i[create destroy]
