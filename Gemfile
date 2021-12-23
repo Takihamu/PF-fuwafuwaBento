@@ -79,3 +79,6 @@ end
 gem 'ransack'
 gem 'rubocop', require: false
 gem 'rubocop-rails', require: false
+group :development do
+  gem 'bullet'
+end
