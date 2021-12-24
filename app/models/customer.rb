@@ -21,8 +21,9 @@ class Customer < ApplicationRecord
     #return favorite_items
   #end
 
+  #ゲスト
   def self.guest
-    find_or_create_by!(email: 'guest@example.com') do |customer|
+    find_or_create_by!(name: 'ゲスト',email: 'guest@example.com') do |customer|
     customer.password = SecureRandom.urlsafe_base64
   end
 end
