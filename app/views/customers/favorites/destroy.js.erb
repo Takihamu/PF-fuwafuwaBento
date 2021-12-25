@@ -1,1 +1,2 @@
 $("#item_<%= @item.id %>").html("<%= j(render 'customers/items/favorite', item: @item) %>");
+$("#favorite_items").html("<%= j(render 'customers/items/item', favorite_items: @favorite_items) %>");

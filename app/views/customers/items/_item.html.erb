@@ -1,3 +1,5 @@
+  <% favorite_items.each do |item|%>
+    <div class = "favorite" id='favorite_item_<%= item.id %>'>
     <div class="row">
     <div class="col-lg-3 col-md-7 mb-5">
       <div class="card-deck" style="width: 19rem;">
@@ -12,11 +14,13 @@
             <h3><%= item.add_tax_price.to_s(:delimited) %>円</h3>
             <button type="button" class="btn btn-outline-warning"><%= link_to "注文する",item_path(item.id) %></button>
 
-            <div class = "favorite" id='item_<%= item.id %>'>
-              <%= render 'favorite', item: item %>
+            <div class = "favorite" id='f_item_<%= item.id %>'>
+              <%= render 'customers/items/favorite', item: item %>
             </div>
 
           </div>
         </div>
       </div>
     </div>
+  </div>
+  <% end %>
