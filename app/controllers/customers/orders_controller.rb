@@ -1,6 +1,7 @@
 class Customers::OrdersController < ApplicationController
   def new
-    @order = Order.new(order_params)
+    @order = Order.new
+    @order.start_date = params[:order][:start_date]
     @cart_item = CartItem.where(customer_id: current_customer.id)
     @customer = current_customer
     @cart_items = CartItem.caliculate_customer_cart_items(current_customer)
