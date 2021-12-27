@@ -11,24 +11,36 @@
           </span>
           <ul class="navbar-nav ml-auto">
           <li class="mr-1">
-            <%= link_to "カレンダーを見る", customer_path(current_customer), class: "btn mr-5", style: "background-color: #800000; color: white; " %>
+            <%= link_to customer_path(current_customer), class: "btn mr-5", style: "background-color: #800000; color: white; " do %>
+            カレンダーを見る
+            <i class="fas fa-book-open"></i>
+            <% end %>
           </li>
 
             <li class="mr-1">
-           <%= link_to "お弁当を注文する", items_path, class: "btn mr-5", style: "background-color: #ffa500; color: white; " %>
+           <%= link_to  items_path, class: "btn mr-5", style: "background-color: #ffa500; color: white; " do %>
+           お弁当を注文する
+           <i class="fas fa-utensils"></i>
+           <% end %>
         </li>
 
 
           <li class="mr-1">
-            <%= link_to "注文に進む",cart_items_path, class: "btn mr-5", style: "background-color: #800000; color: white; " %>
-            <i class="fas fa-cart-plus"></i>
-                <% if cart_items.present? %>
+            <%= link_to cart_items_path, class: "btn mr-5", style: "background-color: #800000; color: white; " do %>
+              注文に進む
+              <i class="fas fa-cart-plus"></i>
+              <% if cart_items.present? %>
                   <%= cart_items.count %>
                 <% end %>
+            <% end %>
+
             </li>
 
           <li class="mr-1">
-            <%= link_to "注文履歴", orders_path, class: "btn mr-5", style: "background-color: #ffa500; color: white; " %>
+            <%= link_to orders_path, class: "btn mr-5", style: "background-color: #ffa500; color: white; " do %>
+            注文履歴
+            <i class="fas fa-gift"></i>
+            <% end %>
           </li>
 
            <li class="mx-4">

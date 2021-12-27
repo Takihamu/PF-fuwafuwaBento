@@ -1,27 +1,23 @@
-  <% favorite_items.each do |item|%>
-    <div class = "favorite" id='favorite_item_<%= item.id %>'>
-      <div id= "favorite_items">
-       <div class="col-lg-3 col-md-7 mb-5">
-        <div class="card-deck" style="width: 19rem;">
-          <div class="shadow-sm card">
+<% items.each do |item| %>
+  <div class="col-lg-3 col-md-7 mb-5">
+    <div class="card-deck" style="width: 19rem;">
+      <div class="shadow-sm card">
 
-           <%= link_to item_path(item.id) do %>
-             <%= attachment_image_tag item, :image, :fill, 500, 300, fallback: "no-image.jpg",class:"card-img-top" %>
-           <% end %>
+         <%= link_to item_path(item.id) do %>
+           <%= attachment_image_tag item, :image, :fill, 500, 300, fallback: "no-image.jpg",class:"card-img-top" %>
+         <% end %>
+        <div class="card-body">
+          <h5 class="card-title"><%= link_to item.item_name, item_path(item.id) %></h5>
+          <p class="card-text"><%= item.detail %></p>
+          <h3><%= item.add_tax_price.to_s(:delimited) %>円</h3>
+          <button type="button" class="btn btn-outline-warning"><%= link_to "注文する",item_path(item.id) %></button>
 
-          <div class="card-body">
-            <h5 class="card-title"><%= link_to item.item_name, item_path(item.id) %></h5>
-            <p class="card-text"><%= item.detail %></p>
-            <h3><%= item.add_tax_price.to_s(:delimited) %>円</h3>
-            <button type="button" class="btn btn-outline-warning"><%= link_to "注文する",item_path(item.id) %></button>
-
-            <div class = "favorite" id='f_item_<%= item.id %>'>
-              <%= render 'customers/items/favorite', item: item %>
-            </div>
-
+          <div class = "favorite" id='item_<%= item.id %>'>
+            <%= render '/customers/items/favorite', item: item %>
           </div>
+
         </div>
       </div>
     </div>
   </div>
-  <% end %>
+<% end %>
