@@ -1,15 +1,18 @@
-<h1>検索結果</h1>
-<table>
-   <thead>
-     <tr>
+<div class="container" id="cartritems-container">
+  <h1 class="text title-text">検索結果</h1>
+  <div class="row mt-5">
+  <table class="table table-bordered table-hover">
+   <thead class="table-active text">
+     <tr bgcolor="#fce4ec">
        <th>商品名</th>
        <th>商品説明</th>
        <th>熱量</th>
        <th>価格(並盛）</th>
+       <th></th>
      </tr>
-    <tbody>
+    <tbody bgcolor="#fcf7f7">
       <% @results.each do |item| %>
-      <tr>
+       <tr class="light-text">
         <td><%= item.item_name %></td>
         <td><%= item.detail %></td>
         <td><%= item.energy %>kcal</td>
