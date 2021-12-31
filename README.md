@@ -30,7 +30,7 @@ TOPページにカレンダーが記載されているので、利用ユーザ�
 ## 設計書
 ・[ER図](https://drive.google.com/file/d/1YTqqCqX76iA_YrZ1r8Mm890nM57kksG_/view?usp=sharing)<br>
 ・[画面遷移図](https://app.diagrams.net/#G1Vc8XEZE7FeUBl_WJFZtw8xTkiKvT_6nC)<br>
-・テーブル定義書<br>
+
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1qoQs7gx4L54HtrvcsFN4duzavq-vIF6UGsNnJ6GWC64/edit#gid=0
