@@ -1,10 +1,8 @@
 <div class="container-fluid">
-  <h2 class="mt-4 fs-2 mb-5 col-15 text-center">注文履歴一覧</h2>
-  <table class="table justify-content-center">
+  <h2 class="mx-9 my-3">注文履歴一覧</h2>
+  <table class="table table-striped">
     <thead>
-      <div class="col-md-5 offset-md-2">
-        <table class="table justify-content-center">
-          <thead bgcolor="#f2c9ac">
+       <tr class="table-head" style="background-color:#fce4ec;">
         <tr>
           <th>お客様名</th>
           <th>注文個数</th>
@@ -17,6 +15,7 @@
            <%= link_to admins_order_path(order) do %>
         <% end %>
         </td>
+        <td><%= order.customer.last_name %><%= order.customer.first_name %></td>
         <td>
           <%= order.order_items.sum(:number_of_piaces) %>
         </td>
