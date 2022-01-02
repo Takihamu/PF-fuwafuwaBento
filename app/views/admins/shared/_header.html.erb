@@ -4,7 +4,7 @@
    <% unless admin_signed_in? %>
    <%= render "customers/shared/header" %>
    <% else %>
-   
+
    <ul class="navbar-nav ml-auto">
     <%= link_to admins_items_path, class: "navbar-brand" do %>
      <%= image_tag 'headlogo.png', { height:50 } %>
@@ -29,4 +29,5 @@
    </li>
 
    <% end %>
+
    </nav>
